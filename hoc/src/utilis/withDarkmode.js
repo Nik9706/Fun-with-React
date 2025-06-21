@@ -8,9 +8,7 @@ const withDarkmode = (Component) => {
 
   return (props) => {
     return (
-      <div style={styles}>
-        <Component {...props} />
-      </div>
+      <div style={styles}> <Component {...props} /></div>
     );
   };
 };
