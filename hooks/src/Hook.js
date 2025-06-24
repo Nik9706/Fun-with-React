@@ -2,8 +2,10 @@ import React, { use } from 'react'
 import { useState } from 'react'
 
 function Hook() {
-    const [count,setCount]=useState(0)
+    
+        
     const increment=()=>{
+        const [count,setCount]=useState(0)
         setCount((count)=>(count+1))
     }
   return (
