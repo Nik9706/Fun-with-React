@@ -11,16 +11,16 @@ function App() {
   //useRef hook
   const passwordRef = useRef(null)
 
-  const passwordGenerator = useCallback(() => {
-    let pass = ""
-    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-    if (numberAllowed) str += "0123456789"
-    if (charAllowed) str += "!@#$%^&*-_+=[]{}~`"
+const passwordGenerator=useCallback(()=>{
+    let pass ="";
+    let str="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
+    if(charAllowed) str +="!@#$%^&*()_+{}|:<>?[];',./`~";
+    if(numberAllowed)str+="0123456789";
 
-    for (let i = 1; i <= length; i++) {
-      let char = Math.floor(Math.random() * str.length + 1)
-      pass += str.charAt(char)
-      
+    let char="";
+    for (let i = 0; i < length; i++) {
+        char = str.charAt(Math.floor(Math.random() * str.length));
+        pass += char;
     }
 
     setPassword(pass)
@@ -30,7 +30,7 @@ function App() {
 
   const copyPasswordToClipboard = useCallback(() => {
     passwordRef.current?.select();
-    passwordRef.current?.setSelectionRange(0, 999);
+    passwordRef.current?.setSelectionRange(0, 8);
     window.navigator.clipboard.writeText(password)
   }, [password])
 
