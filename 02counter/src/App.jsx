@@ -1,35 +1,43 @@
 import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  
-const [count,setCount]=useState(0)
-  function addValue(){
-    if (count==30) {
-      alert("Count cannot be greater than 30");
-      return;
-    }
-    else {
-    setCount(count+1)
-  }
+ let [counter,setCounter] =useState(10)
 
+//let counter=10
+
+function AddValue(){
+
+//counter=counter+1
+if(counter>20)
+{
+alert("cannot got more than that")
+}
+else
+  setCounter(counter+1)
+
+
+console.log('counter',counter)
+}
+function RemoveValue(){
+  if(counter>0){
+    setCounter(counter-1)
   }
-  function removeValue(){
-    if (count == 0) {
-      alert("Count cannot be less than zero");
-      return;
-    }
-    else{
-    setCount(count-1)
-  }}
+else 
+  alert('cannot go negative')
+}
 
   return (
     <>
-      <h1>Fun with react</h1>
-      <h2>Counter: {count} </h2>
-      <button onClick={addValue}>Add value:{count}</button>
-      <br/>
-      <button onClick={removeValue}>Remove Value:{count} </button>
-      <p>the value of Counter {count}</p>
+    <h1>the value of counter{counter}</h1>
+    <button onClick={AddValue}>Add value{counter}</button>
+    <br/>
+    <button onClick={RemoveValue}>remove value{counter}</button>
+
+    <h1>the value of the footer{counter}</h1>
+  
     </>
   )
 }
